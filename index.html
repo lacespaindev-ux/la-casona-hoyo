@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La Casona · Restaurante de comida casera en Hoyo de Manzanares</title>
-<meta name="description" content="La Casona, restaurante de cocina casera en Hoyo de Manzanares (C. de la Cruz, 11). Terraza y sala, raciones para compartir y grupos. Reserva llamando al 910 18 24 07.">
-<meta name="theme-color" content="#3a4a32">
+<meta name="description" content="La Casona, restaurante de cocina casera en Hoyo de Manzanares (C. de la Cruz, 11). Menú del día, terraza, raciones para compartir y grupos. Reserva llamando al 910 18 24 07.">
+<meta name="theme-color" content="#1f3a5f">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
@@ -15,8 +15,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --crema:#f6efe4; --crema2:#efe5d3; --oliva:#3a4a32; --oliva2:#2b3825;
-    --terra:#b5532f; --terra2:#9a4424; --carbon:#2a2623; --suave:#6b635b;
+    --crema:#fbf6ea; --crema2:#f1e8d3; --azul:#1f3a5f; --azul2:#14283f;
+    --mostaza:#e6aa2f; --coral:#d4553a; --coral2:#b8432b; --carbon:#222a33; --suave:#5f6975;
     --radio:18px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -24,129 +24,166 @@
   body{font-family:'Inter',system-ui,sans-serif;color:var(--carbon);background:var(--crema);line-height:1.6;-webkit-font-smoothing:antialiased}
   h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:700;line-height:1.1;letter-spacing:-.01em}
   a{color:inherit}
+  img{display:block;max-width:100%}
   .wrap{width:min(1080px,92%);margin-inline:auto}
 
   /* Cabecera + menú desplegable (siempre disponible, también en móvil) */
-  header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(246,239,228,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(42,38,35,.08)}
+  header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(251,246,234,.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(34,42,51,.08)}
   .barra{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;color:var(--oliva)}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;color:var(--azul)}
   .logo svg{width:32px;height:32px}
-  nav.escritorio{display:none;gap:26px}
-  nav.escritorio a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--carbon);opacity:.85}
-  nav.escritorio a:hover{color:var(--terra);opacity:1}
+  nav.escritorio{display:none;gap:24px}
+  nav.escritorio a{text-decoration:none;font-weight:500;font-size:.95rem;opacity:.85}
+  nav.escritorio a:hover{color:var(--coral);opacity:1}
   .acciones{display:flex;align-items:center;gap:10px}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s, background .15s}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s, background .15s;font-family:inherit}
   .btn:active{transform:scale(.97)}
-  .btn-terra{background:var(--terra);color:#fff}
-  .btn-terra:hover{background:var(--terra2)}
-  .btn-linea{border-color:rgba(255,255,255,.65);color:#fff}
-  .btn-linea:hover{background:rgba(255,255,255,.12)}
-  .btn-linea-osc{border-color:var(--oliva);color:var(--oliva)}
-  .btn-linea-osc:hover{background:var(--oliva);color:#fff}
-  .burger{width:44px;height:44px;border-radius:12px;border:1.5px solid rgba(42,38,35,.18);background:transparent;display:grid;place-content:center;gap:5px;cursor:pointer}
+  .btn-coral{background:var(--coral);color:#fff}
+  .btn-coral:hover{background:var(--coral2)}
+  .btn-mostaza{background:var(--mostaza);color:var(--azul2)}
+  .btn-mostaza:hover{background:#f0b948}
+  .btn-linea{border-color:rgba(255,255,255,.7);color:#fff}
+  .btn-linea:hover{background:rgba(255,255,255,.14)}
+  .btn-linea-osc{border-color:var(--azul);color:var(--azul)}
+  .btn-linea-osc:hover{background:var(--azul);color:#fff}
+  .burger{width:44px;height:44px;border-radius:12px;border:1.5px solid rgba(34,42,51,.18);background:transparent;display:grid;place-content:center;gap:5px;cursor:pointer}
   .burger span{display:block;width:20px;height:2px;background:var(--carbon);border-radius:2px;transition:.2s}
   .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
   .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-  .desplegable{display:none;border-top:1px solid rgba(42,38,35,.08);background:var(--crema);padding:10px 4% 18px}
+  .desplegable{display:none;border-top:1px solid rgba(34,42,51,.08);background:var(--crema);padding:10px 4% 18px;max-height:calc(100svh - 64px);overflow:auto}
   .desplegable.abierto{display:block}
-  .desplegable a{display:block;padding:14px 6px;text-decoration:none;font-weight:600;font-size:1.05rem;border-bottom:1px solid rgba(42,38,35,.07)}
+  .desplegable a{display:block;padding:14px 6px;text-decoration:none;font-weight:600;font-size:1.05rem;border-bottom:1px solid rgba(34,42,51,.07)}
   .desplegable a:last-child{border-bottom:0}
   .desplegable .btn{margin-top:12px;width:100%}
-  @media(min-width:860px){nav.escritorio{display:flex}.burger{display:none}.desplegable{display:none!important}}
+  @media(min-width:960px){nav.escritorio{display:flex}.burger{display:none}.desplegable{display:none!important}}
 
-  /* Portada */
-  .portada{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;background:
-    radial-gradient(1200px 500px at 85% 0%, rgba(181,83,47,.55), transparent 60%),
-    linear-gradient(165deg,#44573a 0%,#2b3825 70%);
-    overflow:hidden;padding:110px 0 56px}
-  .portada::before{content:"";position:absolute;inset:0;opacity:.07;background-image:
-    repeating-linear-gradient(0deg,#fff 0 1px,transparent 1px 46px),
-    repeating-linear-gradient(90deg,#fff 0 1px,transparent 1px 46px)}
-  .arco{position:absolute;right:-70px;top:90px;width:340px;height:440px;border:2px solid rgba(255,255,255,.18);border-radius:170px 170px 0 0;opacity:.9}
-  .arco::after{content:"";position:absolute;inset:18px;border:2px solid rgba(255,255,255,.12);border-radius:152px 152px 0 0}
+  /* Portada con foto */
+  .portada{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;padding:110px 0 56px;
+    background:linear-gradient(180deg,rgba(20,40,63,.55) 0%,rgba(20,40,63,.35) 35%,rgba(20,40,63,.92) 100%),url("https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SYbTexdfo6WWdBOqZDfPzxv4I_aKRbnbmNIt-1eCtTqETk1kuomHY5WUWR88RVsd3l8riNa1Q-jWrE4RmzrHtDXK3eDqr-99rIqUDm_sQmysyMMAj_i6B8ooQiRwqdM17GnnIX=w1400-h1000-c") center/cover no-repeat, var(--azul2)}
   .portada .wrap{position:relative}
-  .estado{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:8px 14px;border-radius:999px;font-size:.88rem;font-weight:500}
-  .punto{width:9px;height:9px;border-radius:50%;background:#9aa;box-shadow:0 0 0 0 transparent}
+  .estado{display:inline-flex;align-items:center;gap:9px;background:rgba(20,40,63,.6);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.25);padding:8px 14px;border-radius:999px;font-size:.88rem;font-weight:500}
+  .punto{width:9px;height:9px;border-radius:50%;background:#9aa}
   .estado.abierto .punto{background:#6fdc8c;animation:pulso 1.8s infinite}
-  .estado.cerrado .punto{background:#f0a35e}
+  .estado.cerrado .punto{background:var(--mostaza)}
   @keyframes pulso{0%{box-shadow:0 0 0 0 rgba(111,220,140,.6)}100%{box-shadow:0 0 0 12px rgba(111,220,140,0)}}
-  .portada h1{font-size:clamp(2.8rem,9vw,5.4rem);margin:22px 0 14px}
-  .portada h1 em{font-style:normal;color:#f2c7a8}
-  .portada p.lead{font-size:clamp(1.05rem,2.6vw,1.3rem);max-width:34ch;color:rgba(255,255,255,.88)}
+  .portada h1{font-size:clamp(2.8rem,9vw,5.4rem);margin:22px 0 14px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+  .portada h1 em{font-style:normal;color:var(--mostaza)}
+  .portada p.lead{font-size:clamp(1.05rem,2.6vw,1.3rem);max-width:34ch;color:rgba(255,255,255,.92)}
   .portada .botones{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-  .datos-rapidos{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:34px;font-size:.92rem;color:rgba(255,255,255,.8)}
-  .datos-rapidos span::before{content:"✦";margin-right:8px;color:#f2c7a8}
+  .datos-rapidos{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:34px;font-size:.92rem;color:rgba(255,255,255,.85)}
+  .datos-rapidos span::before{content:"✦";margin-right:8px;color:var(--mostaza)}
 
   /* Secciones */
   section{padding:84px 0}
-  .etiqueta{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);margin-bottom:12px}
-  h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:18px;color:var(--oliva)}
+  .etiqueta{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:12px}
+  h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:18px;color:var(--azul)}
   .intro{max-width:56ch;color:var(--suave);font-size:1.05rem}
   .cols{display:grid;gap:34px}
   @media(min-width:860px){.cols{grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}}
-  .tarjeta-casa{background:var(--oliva);color:#fff;border-radius:var(--radio);padding:34px;position:relative;overflow:hidden}
-  .tarjeta-casa::after{content:"";position:absolute;right:-60px;bottom:-60px;width:220px;height:220px;border:2px solid rgba(255,255,255,.14);border-radius:50%}
-  .tarjeta-casa h3{font-size:1.6rem;margin-bottom:14px}
-  .tarjeta-casa ul{list-style:none;display:grid;gap:12px}
-  .tarjeta-casa li{display:flex;gap:12px;align-items:flex-start}
-  .tarjeta-casa li b{color:#f2c7a8;font-weight:600}
-  .tarjeta-casa li::before{content:"✓";color:#f2c7a8;font-weight:700}
+  .fondo2{background:var(--crema2)}
+  .oscuro{background:var(--azul);color:#fff}
+  .oscuro h2{color:#fff}
+  .oscuro .intro{color:rgba(255,255,255,.78)}
+  .oscuro .etiqueta{color:var(--mostaza)}
+
+  /* Fotos */
+  .foto{border-radius:var(--radio);overflow:hidden;background:var(--crema2);box-shadow:0 18px 40px -26px rgba(20,40,63,.55)}
+  .foto img{width:100%;height:100%;object-fit:cover}
+  .collage{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .collage .foto:first-child{grid-column:1 / -1;aspect-ratio:16/10}
+  .collage .foto{aspect-ratio:4/3}
+  .aviso-fotos{font-size:.78rem;color:var(--suave);margin-top:10px}
+
+  /* Lista de la casa */
+  .lista{list-style:none;display:grid;gap:12px;margin-top:22px}
+  .lista li{display:flex;gap:12px;align-items:flex-start}
+  .lista li::before{content:"✓";color:var(--coral);font-weight:700}
+  .lista b{color:var(--azul)}
+
+  /* Menú del día */
+  .menu-card{background:#fff;color:var(--carbon);border-radius:24px;padding:26px;max-width:760px;margin-top:30px;position:relative;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+  .cinta{position:absolute;top:-13px;right:18px;background:var(--mostaza);color:var(--azul2);font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+  .pestañas{display:flex;gap:8px;margin-bottom:18px;background:var(--crema2);padding:5px;border-radius:999px;width:fit-content}
+  .pestañas button{border:0;background:transparent;padding:10px 18px;border-radius:999px;font:600 .92rem 'Inter',sans-serif;color:var(--suave);cursor:pointer}
+  .pestañas button[aria-selected="true"]{background:var(--azul);color:#fff}
+  .menu-fecha{font-size:.9rem;color:var(--suave);margin-bottom:14px}
+  .menu-bloque h3{font-size:1.05rem;color:var(--coral);margin:16px 0 8px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem}
+  .menu-bloque ul{list-style:none;display:grid;gap:2px}
+  .menu-bloque li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed rgba(34,42,51,.14);font-size:1.02rem}
+  .menu-bloque li:last-child{border-bottom:0}
+  .menu-bloque li.agotado span:first-child{text-decoration:line-through;opacity:.5}
+  .menu-bloque li .tag{font-size:.74rem;font-weight:700;color:#fff;background:var(--coral);padding:3px 9px;border-radius:999px;align-self:center;white-space:nowrap}
+  .menu-pie{margin-top:18px;padding-top:16px;border-top:1px solid rgba(34,42,51,.1);font-size:.88rem;color:var(--suave)}
 
   /* Platos */
-  .fondo2{background:var(--crema2)}
-  .platos{display:grid;gap:14px;margin-top:34px;grid-template-columns:1fr}
-  @media(min-width:640px){.platos{grid-template-columns:repeat(2,1fr)}}
-  @media(min-width:960px){.platos{grid-template-columns:repeat(3,1fr)}}
-  .plato{background:#fff;border-radius:var(--radio);padding:22px;border:1px solid rgba(42,38,35,.07);transition:transform .2s, box-shadow .2s}
-  .plato:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(42,38,35,.35)}
-  .plato .num{font-family:'Fraunces',serif;font-size:1.9rem;color:var(--terra);opacity:.9}
-  .plato h3{font-size:1.2rem;margin:4px 0 6px;color:var(--oliva)}
-  .plato p{font-size:.93rem;color:var(--suave)}
+  .platos-fotos{display:grid;gap:14px;margin-top:34px;grid-template-columns:repeat(2,1fr)}
+  @media(min-width:860px){.platos-fotos{grid-template-columns:repeat(4,1fr)}}
+  .plato-foto{position:relative;border-radius:var(--radio);overflow:hidden;aspect-ratio:3/4;background:var(--azul2)}
+  .plato-foto img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .plato-foto:hover img{transform:scale(1.05)}
+  .plato-foto figcaption{position:absolute;inset:auto 0 0 0;padding:34px 14px 14px;background:linear-gradient(180deg,transparent,rgba(20,40,63,.9));color:#fff;font-weight:600;font-size:.95rem}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .chip{background:#fff;border:1px solid rgba(34,42,51,.1);border-radius:999px;padding:10px 16px;font-weight:500;font-size:.95rem}
+  .chip b{color:var(--coral);font-weight:600}
   .nota{margin-top:22px;font-size:.92rem;color:var(--suave)}
 
+  /* Insignias */
+  .insignias{display:grid;gap:12px;margin-top:26px}
+  @media(min-width:560px){.insignias{grid-template-columns:1fr 1fr}}
+  .insignia{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid rgba(34,42,51,.08);border-radius:16px;padding:16px}
+  .insignia .ic{flex:none;width:42px;height:42px;border-radius:12px;background:var(--azul);color:var(--mostaza);display:grid;place-items:center;font-size:1.2rem}
+  .insignia strong{display:block;color:var(--azul);font-weight:600}
+  .insignia small{color:var(--suave);font-size:.86rem}
+
   /* Horario */
-  .horario{margin-top:30px;background:#fff;border-radius:var(--radio);border:1px solid rgba(42,38,35,.07);overflow:hidden;max-width:520px}
-  .horario div{display:flex;justify-content:space-between;padding:14px 22px;border-bottom:1px solid rgba(42,38,35,.07);font-size:.98rem}
+  .horario{margin-top:30px;background:#fff;border-radius:var(--radio);border:1px solid rgba(34,42,51,.07);overflow:hidden;max-width:520px}
+  .horario div{display:flex;justify-content:space-between;padding:14px 22px;border-bottom:1px solid rgba(34,42,51,.07);font-size:.98rem}
   .horario div:last-child{border-bottom:0}
-  .horario .hoy{background:#f5e3d6;font-weight:600}
-  .horario .cerrado span:last-child{color:var(--terra);font-weight:600}
+  .horario .hoy{background:#fbe9c4;font-weight:600}
+  .horario .cerrado span:last-child{color:var(--coral);font-weight:600}
+
+  /* Reservas */
+  .form{display:grid;gap:14px;margin-top:26px}
+  @media(min-width:560px){.form{grid-template-columns:1fr 1fr}.form .ancho{grid-column:1/-1}}
+  .campo label{display:block;font-size:.82rem;font-weight:600;margin-bottom:6px;color:rgba(255,255,255,.85)}
+  .campo input,.campo select{width:100%;padding:13px 14px;border-radius:12px;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#fff;font:500 1rem 'Inter',sans-serif}
+  .campo select option{color:#222}
+  .campo input::placeholder{color:rgba(255,255,255,.5)}
+  .campo input:focus,.campo select:focus{outline:2px solid var(--mostaza);outline-offset:1px}
+  input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(1)}
+  .vista-previa{display:none;margin-top:20px;background:#fff;color:var(--carbon);border-radius:18px;padding:20px;position:relative}
+  .vista-previa.visible{display:block}
+  .vista-previa p.msg{font-size:1rem;background:#e8f3df;border-radius:14px;padding:14px 16px;border:1px solid rgba(34,42,51,.08);margin:10px 0 14px}
+  .vista-previa small{color:var(--suave);display:block;margin-top:10px}
 
   /* Reseñas */
   .resumen{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:6px 0 30px}
-  .nota-grande{font-family:'Fraunces',serif;font-size:3.6rem;color:var(--oliva);line-height:1}
-  .estrellas{color:#e0a32e;letter-spacing:3px;font-size:1.15rem}
+  .nota-grande{font-family:'Fraunces',serif;font-size:3.6rem;color:var(--azul);line-height:1}
+  .estrellas{color:var(--mostaza);letter-spacing:3px;font-size:1.15rem}
   .resumen small{color:var(--suave);display:block}
   .reseñas{display:grid;gap:16px}
   @media(min-width:760px){.reseñas{grid-template-columns:repeat(2,1fr)}}
-  .reseña{background:#fff;border-radius:var(--radio);padding:26px;border:1px solid rgba(42,38,35,.07)}
+  .reseña{background:#fff;border-radius:var(--radio);padding:26px;border:1px solid rgba(34,42,51,.07)}
   .reseña p{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:500;line-height:1.35}
   .reseña footer{margin-top:14px;font-size:.85rem;color:var(--suave);display:flex;gap:10px;align-items:center}
 
   /* Cómo llegar */
-  .mapa{border-radius:var(--radio);overflow:hidden;border:1px solid rgba(42,38,35,.1);min-height:320px}
+  .mapa{border-radius:var(--radio);overflow:hidden;border:1px solid rgba(34,42,51,.1);min-height:320px}
   .mapa iframe{display:block;width:100%;height:100%;min-height:340px;border:0}
   .ficha{display:grid;gap:16px;margin-top:26px}
   .ficha a.fila,.ficha div.fila{display:flex;gap:14px;align-items:flex-start;text-decoration:none}
-  .ficha .icono{flex:none;width:42px;height:42px;border-radius:12px;background:var(--oliva);color:#fff;display:grid;place-items:center;font-size:1.1rem}
+  .ficha .icono{flex:none;width:42px;height:42px;border-radius:12px;background:var(--azul);color:var(--mostaza);display:grid;place-items:center;font-size:1.1rem}
   .ficha small{display:block;color:var(--suave);font-size:.82rem}
   .ficha strong{font-weight:600}
 
-  /* Banda reserva */
-  .reserva{background:var(--terra);color:#fff;text-align:center;padding:70px 0}
-  .reserva h2{color:#fff}
-  .reserva p{max-width:46ch;margin:0 auto 26px;opacity:.92}
-  .btn-blanco{background:#fff;color:var(--terra)}
-  .btn-blanco:hover{background:var(--crema)}
-
-  footer.pie{background:var(--oliva2);color:rgba(255,255,255,.75);padding:34px 0;font-size:.88rem}
+  footer.pie{background:var(--azul2);color:rgba(255,255,255,.75);padding:34px 0;font-size:.88rem}
   footer.pie .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
   footer.pie b{color:#fff}
 
-  /* Aparición suave */
   .rev{opacity:0;transform:translateY(16px);transition:opacity .6s, transform .6s}
   .rev.ver{opacity:1;transform:none}
-  @media(prefers-reduced-motion:reduce){.rev{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.estado.abierto .punto{animation:none}}
+  @media(prefers-reduced-motion:reduce){.rev{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.estado.abierto .punto{animation:none}.plato-foto img{transition:none}}
 </style>
 </head>
 <body>
@@ -154,47 +191,50 @@
 <header>
   <div class="wrap barra">
     <a class="logo" href="#inicio" aria-label="La Casona, inicio">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#3a4a32"/><path d="M18 50V30a14 14 0 0 1 28 0v20" fill="none" stroke="#f2c7a8" stroke-width="4" stroke-linecap="round"/><path d="M26 50V32a6 6 0 0 1 12 0v18" fill="#b5532f"/></svg>
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1f3a5f"/><path d="M18 50V30a14 14 0 0 1 28 0v20" fill="none" stroke="#e6aa2f" stroke-width="4" stroke-linecap="round"/><path d="M26 50V32a6 6 0 0 1 12 0v18" fill="#d4553a"/></svg>
       La Casona
     </a>
     <nav class="escritorio" aria-label="Principal">
       <a href="#casa">La casa</a>
+      <a href="#menu">Menú del día</a>
       <a href="#platos">Platos</a>
+      <a href="#terraza">Terraza</a>
       <a href="#horario">Horario</a>
       <a href="#opiniones">Opiniones</a>
       <a href="#como-llegar">Cómo llegar</a>
     </nav>
     <div class="acciones">
-      <a class="btn btn-terra" href="tel:910182407">Reservar</a>
-      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+      <a class="btn btn-coral" href="#reservar">Reservar</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil"><span></span><span></span><span></span></button>
     </div>
   </div>
-  <div class="desplegable" id="menu">
+  <div class="desplegable" id="menu-movil">
     <a href="#inicio">Inicio</a>
     <a href="#casa">La casa</a>
+    <a href="#menu">Menú del día</a>
     <a href="#platos">Platos</a>
+    <a href="#terraza">Terraza</a>
     <a href="#horario">Horario</a>
     <a href="#opiniones">Opiniones</a>
     <a href="#como-llegar">Cómo llegar</a>
-    <a class="btn btn-terra" href="tel:910182407">Llamar para reservar · 910 18 24 07</a>
+    <a class="btn btn-coral" href="tel:910182407">Llamar · 910 18 24 07</a>
   </div>
 </header>
 
 <main>
-<section class="portada" id="inicio" style="padding-bottom:56px">
-  <div class="arco" aria-hidden="true"></div>
+<section class="portada" id="inicio">
   <div class="wrap">
     <span class="estado" id="estado"><i class="punto"></i><span id="estado-texto">Comprobando horario…</span></span>
     <h1>Cocina casera,<br>en <em>La Casona</em></h1>
-    <p class="lead">Raciones para compartir, platos de siempre y una terraza tranquila en el centro de Hoyo de Manzanares.</p>
+    <p class="lead">Menú del día, raciones para compartir y una terraza tranquila en el centro de Hoyo de Manzanares.</p>
     <div class="botones">
-      <a class="btn btn-terra" href="tel:910182407">Reservar mesa</a>
-      <a class="btn btn-linea" href="#platos">Ver qué se come</a>
+      <a class="btn btn-mostaza" href="#menu">Ver el menú de hoy</a>
+      <a class="btn btn-linea" href="#reservar">Reservar mesa</a>
     </div>
     <div class="datos-rapidos">
       <span>C. de la Cruz, 11</span>
       <span>Terraza y sala interior</span>
-      <span>Grupos bienvenidos</span>
+      <span>Admitimos mascotas</span>
     </div>
   </div>
 </section>
@@ -205,40 +245,95 @@
       <span class="etiqueta">La casa</span>
       <h2>Un sitio tranquilo para comer sin prisa</h2>
       <p class="intro">En La Casona se cocina comida casera, con platos elaborados y raciones generosas pensadas para compartir en la mesa. Un rincón escondido de Hoyo de Manzanares, donde se está a gusto tanto en la sala como en la terraza.</p>
+      <ul class="lista">
+        <li><span><b>Comida casera</b> hecha con cariño, con postres caseros para cerrar.</span></li>
+        <li><span><b>Menú del día</b> y menú de fin de semana, con platos abundantes.</span></li>
+        <li><span><b>Raciones para compartir</b>, ideales para ir en grupo o en familia.</span></li>
+        <li><span><b>Ambiente tranquilo</b>, se puede conversar sin gritar.</span></li>
+      </ul>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
-        <a class="btn btn-terra" href="tel:910182407">Llamar ahora</a>
+        <a class="btn btn-coral" href="tel:910182407">Llamar ahora</a>
         <a class="btn btn-linea-osc" href="#como-llegar">Cómo llegar</a>
       </div>
     </div>
-    <div class="tarjeta-casa rev">
-      <h3>Lo que encontrarás</h3>
-      <ul>
-        <li><span><b>Comida casera</b> hecha con cariño, con postres caseros para cerrar.</span></li>
-        <li><span><b>Raciones para compartir</b>, ideales para ir en grupo o en familia.</span></li>
-        <li><span><b>Terraza y sala interior</b>, para cualquier época del año.</span></li>
-        <li><span><b>Ambiente tranquilo</b>, se puede conversar sin gritar.</span></li>
-        <li><span><b>Aparcamiento</b> público justo enfrente.</span></li>
-      </ul>
+    <div class="rev">
+      <div class="collage">
+        <div class="foto"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9S3AgS1nQm-NwR6rZ5b89P93Unw0B4O3vQwJQQ5mg3F7xMRK9fIB-5ciDJcOXN9-RyD-bW-JIj7mc1va3OjVVjbEv3YwrFX3RbsAsoVOXyanWq99rbEeR9yZ2jGyQYe6MlLWTvsmqzT9iJZ=w900-h600-c" alt="Sala interior de La Casona" loading="lazy" referrerpolicy="no-referrer"></div>
+        <div class="foto"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TwEbNFhUaZe9t09EJS6_ZE9_UfMYlCOx7oSWO3Kn5N9or8042acymvIkP5WRTFjn9zIuOoQhVWdVoyOR2wTPyLUsSVugsQDbCJYCn3g1KgXdeu6xujvSiHg6VB5Zr2HDBu6Fg=w600-h450-c" alt="Rincón del comedor con plantas" loading="lazy" referrerpolicy="no-referrer"></div>
+        <div class="foto"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SYbTexdfo6WWdBOqZDfPzxv4I_aKRbnbmNIt-1eCtTqETk1kuomHY5WUWR88RVsd3l8riNa1Q-jWrE4RmzrHtDXK3eDqr-99rIqUDm_sQmysyMMAj_i6B8ooQiRwqdM17GnnIX=w600-h450-c" alt="Patio con muro de piedra y plantas" loading="lazy" referrerpolicy="no-referrer"></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="platos" class="fondo2">
+<section id="menu" class="oscuro">
+  <div class="wrap">
+    <div class="rev">
+      <span class="etiqueta">Menú del día</span>
+      <h2>Lo que hay hoy en La Casona</h2>
+      <p class="intro">El menú de cada día, siempre al día en la web, con lo que se ha agotado tachado. Sin sorpresas al llegar.</p>
+    </div>
+    <div class="menu-card rev" id="menu-card">
+      <span class="cinta">Ejemplo de cómo se verá</span>
+      <div class="pestañas" role="tablist" aria-label="Tipo de menú">
+        <button role="tab" id="tab-semana" aria-selected="true" aria-controls="menu-contenido">Entre semana</button>
+        <button role="tab" id="tab-finde" aria-selected="false" aria-controls="menu-contenido">Fin de semana</button>
+      </div>
+      <p class="menu-fecha" id="menu-fecha"></p>
+      <div class="menu-bloque" id="menu-contenido" role="tabpanel"></div>
+      <p class="menu-pie">Pan, bebida y postre o café incluidos según menú. Pregunta por las opciones sin gluten o sin lactosa.</p>
+    </div>
+  </div>
+</section>
+
+<section id="platos">
   <div class="wrap">
     <div class="rev">
       <span class="etiqueta">De la cocina</span>
       <h2>Los platos de los que más se habla</h2>
       <p class="intro">Algunos de los platos que los clientes mencionan una y otra vez en sus opiniones.</p>
     </div>
-    <div class="platos">
-      <article class="plato rev"><div class="num">01</div><h3>Picapollo</h3><p>Uno de los platos más comentados de la casa.</p></article>
-      <article class="plato rev"><div class="num">02</div><h3>Calamares</h3><p>Muy elogiados por quienes han pasado por la mesa.</p></article>
-      <article class="plato rev"><div class="num">03</div><h3>Pimientos del piquillo rellenos de cordero</h3><p>Un plato de cocina elaborada que sorprende.</p></article>
-      <article class="plato rev"><div class="num">04</div><h3>Alitas a la barbacoa</h3><p>Jugosas y sabrosas, para picar entre todos.</p></article>
-      <article class="plato rev"><div class="num">05</div><h3>Calabacín relleno de carne</h3><p>Acompañado de menestra de verduras rehogadas.</p></article>
-      <article class="plato rev"><div class="num">06</div><h3>Postres caseros</h3><p>Para cerrar la comida con algo hecho en casa.</p></article>
+    <div class="platos-fotos">
+      <figure class="plato-foto rev"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QFuhkjCacg_-p9AgtgzeBgv_ZOOFaPNRDsub3rDdCiXBvmzB6tVhPTtQL0qqpO2jNH7JUgBqwvdetV5Oci7iQlgfXaZvlvuEcAPZEEUqTU-8hKlRkFyJxt5dASS61dqWWyM3ZuZKSjBG8=w600-h800-c" alt="Plato para compartir" loading="lazy" referrerpolicy="no-referrer"><figcaption>Para compartir</figcaption></figure>
+      <figure class="plato-foto rev"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Qub-ppji7RXwRI4z3VjZegjkDf-QElLDmvZB_W4ne9Gpo562IrB4e5N3ms8Duy4zSItJdJt8moe3pCevW7678xFqC8XXRcDAQZkCXAhYL-8knGoLXg6IULEO0WOaXZVgFUNYC8zykxpL81=w600-h800-c" alt="Plato a la parrilla con verduras y carne" loading="lazy" referrerpolicy="no-referrer"><figcaption>A la parrilla</figcaption></figure>
+      <figure class="plato-foto rev"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Qx8GtUdd1iR0UWkD4YUbLbZ-SK9qqq1zNNWleEcMZN4oQBzmDwJZw7YVhlJr-lvm3OQh5hxLfDAoKqPcdkfss9y5wfBYDeVhvfCOO0Vtq315DYLojDrYYMACbhrvUEiGG6oU9phkJAPyz5=w600-h800-c" alt="Jamón con patatas" loading="lazy" referrerpolicy="no-referrer"><figcaption>Jamón con patatas</figcaption></figure>
+      <figure class="plato-foto rev"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Ri3GlOgZj8qVsx6X8zgoiitKkmAEMfMqvpX_b149IfQO7Uu8qeBkVbsTTTemCE1BKlDjVqLqInvqM4oOE773ccQFEz-zzQsXCc6Hxr85mm_0K2v-iOaZUqS9-jmPtdv32tT-xo82H3xqja=w600-h800-c" alt="Tarta de chocolate" loading="lazy" referrerpolicy="no-referrer"><figcaption>Tarta de chocolate</figcaption></figure>
     </div>
-    <p class="nota rev">La carta completa y los menús, en el local o llamando al <a href="tel:910182407"><b>910 18 24 07</b></a>.</p>
+    <div class="chips rev">
+      <span class="chip"><b>Picapollo</b></span>
+      <span class="chip"><b>Calamares</b></span>
+      <span class="chip"><b>Pimientos del piquillo</b> rellenos de cordero</span>
+      <span class="chip"><b>Alitas</b> a la barbacoa</span>
+      <span class="chip"><b>Calabacín</b> relleno de carne</span>
+      <span class="chip"><b>Menestra</b> de verduras</span>
+      <span class="chip"><b>La bandera dominicana</b></span>
+      <span class="chip"><b>Postres caseros:</b> tres leches, tarta de queso, milhojas</span>
+    </div>
+    <p class="nota rev">La carta completa, en el local o llamando al <a href="tel:910182407"><b>910 18 24 07</b></a>.</p>
+  </div>
+</section>
+
+<section id="terraza" class="fondo2">
+  <div class="wrap cols">
+    <div class="rev">
+      <div class="collage">
+        <div class="foto"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T7gsTRcEVdoM574yiwfxgb7CEbgDd-G9og6hUnj0MdKLJjKoG1GX8DSu0388b5zZugMhMT7chC6kGnZW8WU-poEGa9Zp6WSdWU3bbhtsTCIuXcaHN11m-ILAq0c5nJrOZQfhM-=w900-h600-c" alt="Terraza de La Casona" loading="lazy" referrerpolicy="no-referrer"></div>
+        <div class="foto"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QfXV669cyhxeVNPfZUiPfVsFra7qLfob4GW_3np9VEpF41GjBGTQjXG4PSh13kxWpaBKvzK-DC9v4ltcI53rjkn0UiIpQ_stHVhZGlErlRC7ywHWEJ6UMufrCClDsXSKDo2yPNng=w600-h450-c" alt="Terraza con plantas" loading="lazy" referrerpolicy="no-referrer"></div>
+        <div class="foto"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SYbTexdfo6WWdBOqZDfPzxv4I_aKRbnbmNIt-1eCtTqETk1kuomHY5WUWR88RVsd3l8riNa1Q-jWrE4RmzrHtDXK3eDqr-99rIqUDm_sQmysyMMAj_i6B8ooQiRwqdM17GnnIX=w600-h450-c" alt="Patio de piedra" loading="lazy" referrerpolicy="no-referrer"></div>
+      </div>
+      <p class="aviso-fotos">Fotos de muestra tomadas de la ficha de Google. En la web final irán las vuestras.</p>
+    </div>
+    <div class="rev">
+      <span class="etiqueta">Terraza y sala</span>
+      <h2>Se está en la gloria en la terraza</h2>
+      <p class="intro">Una zona tranquila, con terraza y sala interior para cualquier época del año. Y si vienes de hacer una ruta por la sierra, aquí se repone uno.</p>
+      <div class="insignias">
+        <div class="insignia"><span class="ic">🐾</span><span><strong>Admitimos mascotas</strong><small>Tu perro también es bienvenido.</small></span></div>
+        <div class="insignia"><span class="ic">🥾</span><span><strong>Después de la ruta</strong><small>Menú completo para reponer fuerzas.</small></span></div>
+        <div class="insignia"><span class="ic">👥</span><span><strong>Grupos</strong><small>Raciones para compartir en mesa grande.</small></span></div>
+        <div class="insignia"><span class="ic">🅿</span><span><strong>Aparcamiento</strong><small>Público justo enfrente.</small></span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -258,10 +353,8 @@
         <div data-d="0"><span>Domingo</span><span>10:30 – 2:00</span></div>
       </div>
     </div>
-    <div class="tarjeta-casa rev" style="background:var(--terra)">
-      <h3>¿Venís en grupo?</h3>
-      <p style="opacity:.95">Se recomienda reservar, sobre todo los fines de semana y para grupos grandes. Llámanos y te guardamos mesa.</p>
-      <p style="margin-top:20px"><a class="btn btn-blanco" href="tel:910182407">910 18 24 07</a></p>
+    <div class="rev">
+      <div class="foto" style="aspect-ratio:4/5"><img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9S3AgS1nQm-NwR6rZ5b89P93Unw0B4O3vQwJQQ5mg3F7xMRK9fIB-5ciDJcOXN9-RyD-bW-JIj7mc1va3OjVVjbEv3YwrFX3RbsAsoVOXyanWq99rbEeR9yZ2jGyQYe6MlLWTvsmqzT9iJZ=w800-h1000-c" alt="Sala de La Casona" loading="lazy" referrerpolicy="no-referrer"></div>
     </div>
   </div>
 </section>
@@ -278,7 +371,9 @@
     </div>
     <div class="reseñas">
       <blockquote class="reseña rev"><p>“Comida casera y buenísima, un ambiente agradable y una atención exquisita.”</p><footer><span class="estrellas">★★★★★</span> Reseña de Google</footer></blockquote>
-      <blockquote class="reseña rev"><p>“La comida con buena presentación y sabores ricos, platos con raciones generosas.”</p><footer><span class="estrellas">★★★★★</span> Reseña de Google</footer></blockquote>
+      <blockquote class="reseña rev"><p>“El menú diario es barato y con platos abundantes.”</p><footer><span class="estrellas">★★★★★</span> Reseña de Google</footer></blockquote>
+      <blockquote class="reseña rev"><p>“Los pimientos del piquillo rellenos de cordero, espectaculares.”</p><footer><span class="estrellas">★★★★★</span> Reseña de Google</footer></blockquote>
+      <blockquote class="reseña rev"><p>“Comida casera, trato cercano y espacio muy agradable.”</p><footer><span class="estrellas">★★★★★</span> Reseña de Google</footer></blockquote>
     </div>
   </div>
 </section>
@@ -294,7 +389,7 @@
         <a class="fila" href="tel:910182407"><span class="icono">✆</span><span><small>Teléfono</small><strong>910 18 24 07</strong></span></a>
         <div class="fila"><span class="icono">◷</span><span><small>Horario</small><strong>10:30 – 2:00 · Cerrado los martes</strong></span></div>
       </div>
-      <p style="margin-top:24px"><a class="btn btn-terra" href="https://www.google.com/maps/dir/?api=1&destination=La+Casona+C.+de+la+Cruz+11+Hoyo+de+Manzanares" target="_blank" rel="noopener">Cómo llegar con Google Maps</a></p>
+      <p style="margin-top:24px"><a class="btn btn-coral" href="https://www.google.com/maps/dir/?api=1&destination=La+Casona+C.+de+la+Cruz+11+Hoyo+de+Manzanares" target="_blank" rel="noopener">Cómo llegar con Google Maps</a></p>
     </div>
     <div class="mapa rev">
       <iframe title="Mapa de La Casona en Hoyo de Manzanares" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=La+Casona+C.+de+la+Cruz+11+Hoyo+de+Manzanares&output=embed"></iframe>
@@ -302,11 +397,33 @@
   </div>
 </section>
 
-<section class="reserva">
-  <div class="wrap">
-    <h2>Te guardamos mesa</h2>
-    <p>Llama y reserva para comer o cenar en La Casona. Te atendemos encantados.</p>
-    <a class="btn btn-blanco" href="tel:910182407">Llamar al 910 18 24 07</a>
+<section id="reservar" class="oscuro">
+  <div class="wrap" style="max-width:760px">
+    <div class="rev">
+      <span class="etiqueta">Reservar</span>
+      <h2>Te guardamos mesa</h2>
+      <p class="intro">Para comer o cenar, y sobre todo si venís en grupo. Rellena los datos y te confirmamos.</p>
+    </div>
+    <form class="form rev" id="form-reserva" novalidate>
+      <div class="campo"><label for="r-nombre">Nombre</label><input id="r-nombre" name="nombre" autocomplete="name" placeholder="Tu nombre" required></div>
+      <div class="campo"><label for="r-tel">Teléfono</label><input id="r-tel" name="tel" type="tel" autocomplete="tel" placeholder="6XX XXX XXX" required></div>
+      <div class="campo"><label for="r-personas">Personas</label>
+        <select id="r-personas" name="personas">
+          <option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>10</option><option>12</option><option>Más de 12</option>
+        </select></div>
+      <div class="campo"><label for="r-fecha">Día</label><input id="r-fecha" name="fecha" type="date" required></div>
+      <div class="campo ancho"><label for="r-hora">Hora</label>
+        <select id="r-hora" name="hora">
+          <option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option>
+        </select></div>
+      <div class="ancho"><button class="btn btn-mostaza" type="submit" style="width:100%">Solicitar mesa</button></div>
+    </form>
+    <div class="vista-previa" id="vista-previa" aria-live="polite">
+      <strong>Así le llegaría a La Casona:</strong>
+      <p class="msg" id="msg-previa"></p>
+      <a class="btn btn-coral" href="tel:910182407">Llamar para confirmar · 910 18 24 07</a>
+      <small>Demostración: en la web final, esta solicitud llega directamente al WhatsApp de La Casona.</small>
+    </div>
   </div>
 </section>
 </main>
@@ -321,7 +438,7 @@
 <script>
 (function(){
   // Menú desplegable
-  var b=document.getElementById('burger'), m=document.getElementById('menu');
+  var b=document.getElementById('burger'), m=document.getElementById('menu-movil');
   function cerrar(){m.classList.remove('abierto');b.setAttribute('aria-expanded','false');b.setAttribute('aria-label','Abrir menú');}
   b.addEventListener('click',function(){
     var o=m.classList.toggle('abierto');
@@ -330,7 +447,7 @@
   });
   m.addEventListener('click',function(e){if(e.target.tagName==='A')cerrar();});
 
-  // Estado abierto/cerrado (hora de Madrid). Abierto 10:30–2:00; martes cerrado.
+  // Hora de Madrid
   function ahoraMadrid(){
     var p=new Intl.DateTimeFormat('es-ES',{timeZone:'Europe/Madrid',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
     var g=function(t){return p.filter(function(x){return x.type===t})[0].value};
@@ -338,16 +455,65 @@
     var w=g('weekday').toLowerCase().replace('.','');
     return {d:map[w],m:parseInt(g('hour'),10)%24*60+parseInt(g('minute'),10)};
   }
-  var n=ahoraMadrid(), ayer=(n.d+6)%7, abierto=false, txt;
-  if(n.d!==2 && n.m>=630) abierto=true;           // desde las 10:30 (si hoy no es martes)
-  if(ayer!==2 && n.m<120) abierto=true;           // madrugada hasta las 2:00 (si ayer no fue martes)
+  var n=ahoraMadrid(), ayer=(n.d+6)%7, abierto=false;
+  if(n.d!==2 && n.m>=630) abierto=true;
+  if(ayer!==2 && n.m<120) abierto=true;
   var el=document.getElementById('estado'), t=document.getElementById('estado-texto');
   if(abierto){ el.classList.add('abierto'); t.textContent='Abierto ahora · cerramos a las 2:00'; }
   else if(n.d===2){ el.classList.add('cerrado'); t.textContent='Hoy descansamos · abrimos mañana a las 10:30'; }
   else { el.classList.add('cerrado'); t.textContent='Cerrado ahora · abrimos a las 10:30'; }
   var fila=document.querySelector('#tabla-horario [data-d="'+n.d+'"]'); if(fila) fila.classList.add('hoy');
 
-  // Aparición suave al hacer scroll
+  // Menú del día (datos de ejemplo; en la web final los actualiza el restaurante)
+  var MENUS={
+    semana:{
+      "Primeros":[{n:"Crema de calabacín con puerros"},{n:"Menestra de verduras rehogadas"},{n:"Ensalada mixta"}],
+      "Segundos":[{n:"Secreto ibérico"},{n:"Merluza a la plancha"},{n:"Rabo de toro",agotado:true}],
+      "Postres":[{n:"Tarta de queso"},{n:"Tres leches"},{n:"Fruta de temporada"}]
+    },
+    finde:{
+      "Primeros":[{n:"Pimientos del piquillo rellenos de cordero"},{n:"Zamburiñas a la plancha"},{n:"Ensalada de la casa"}],
+      "Segundos":[{n:"Paella"},{n:"Atún a la riojana"},{n:"Dorada al horno"}],
+      "Postres":[{n:"Milhojas"},{n:"Tarta de chocolate"},{n:"Tres leches"}]
+    }
+  };
+  var cont=document.getElementById('menu-contenido'), fecha=document.getElementById('menu-fecha');
+  var tS=document.getElementById('tab-semana'), tF=document.getElementById('tab-finde');
+  function pintar(tipo){
+    tS.setAttribute('aria-selected',tipo==='semana'?'true':'false');
+    tF.setAttribute('aria-selected',tipo==='finde'?'true':'false');
+    var html='', d=MENUS[tipo];
+    Object.keys(d).forEach(function(k){
+      html+='<h3>'+k+'</h3><ul>'+d[k].map(function(i){
+        return '<li'+(i.agotado?' class="agotado"':'')+'><span>'+i.n+'</span>'+(i.agotado?'<span class="tag">Agotado</span>':'')+'</li>';
+      }).join('')+'</ul>';
+    });
+    cont.innerHTML=html;
+  }
+  var dias=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  var hoyTxt=new Intl.DateTimeFormat('es-ES',{timeZone:'Europe/Madrid',weekday:'long',day:'numeric',month:'long'}).format(new Date());
+  fecha.textContent='Hoy, '+hoyTxt+'.';
+  var esFinde=(n.d===0||n.d===6);
+  pintar(esFinde?'finde':'semana');
+  tS.addEventListener('click',function(){pintar('semana')});
+  tF.addEventListener('click',function(){pintar('finde')});
+
+  // Reserva de mesa (demostración)
+  var f=document.getElementById('form-reserva'), vp=document.getElementById('vista-previa'), msg=document.getElementById('msg-previa');
+  var hoy=new Date(); var iso=hoy.getFullYear()+'-'+String(hoy.getMonth()+1).padStart(2,'0')+'-'+String(hoy.getDate()).padStart(2,'0');
+  var inFecha=document.getElementById('r-fecha'); inFecha.min=iso; inFecha.value=iso;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var nombre=f.nombre.value.trim(), tel=f.tel.value.trim();
+    if(!nombre||!tel){ (nombre?f.tel:f.nombre).focus(); return; }
+    var fe=new Date(f.fecha.value+'T12:00:00');
+    var ft=isNaN(fe)?f.fecha.value:new Intl.DateTimeFormat('es-ES',{weekday:'long',day:'numeric',month:'long'}).format(fe);
+    msg.textContent='Hola, soy '+nombre+'. Quiero reservar mesa para '+f.personas.value+' personas el '+ft+' a las '+f.hora.value+'. Mi teléfono: '+tel+'.';
+    vp.classList.add('visible');
+    vp.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+
+  // Aparición suave
   var items=document.querySelectorAll('.rev');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('ver');io.unobserve(e.target);}})},{threshold:.12});
